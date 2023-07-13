@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: stateless-app-deployment
+spec:
+ replicas: 1
+ selector:
+   matchLabels:
+     app: stateless-app
+ template:
+   metadata:
+     labels:
+       app: stateless-app
+   spec:
+     containers:
+     - name: stateless-app-container
+       image: nginx:latest
+       ports:
+       - containerPort: 80  
