@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: statefulsetapp
+spec:
+  serviceName: "statefulset"
+  replicas: 2
+  selector:
+    matchLabels:
+      app: statefulsetapp
+  template:
+    metadata:
+      labels:
+        app: statefulsetapp
+    spec:
+      containers:
+      - name: statefulsetapp
+        image: npm:1.0.1
+        ports:
+        - containerPort: 80
+          name: statefulsetapp
